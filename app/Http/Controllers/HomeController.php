@@ -32,4 +32,13 @@ class HomeController extends Controller
         
         return view('home')->with('products',$products);
     }
+
+    public function viewProduct($id)
+    {
+        $api_url = 'https://fakestoreapi.com/products/'.$id;
+
+        $product = json_decode(file_get_contents($api_url));
+
+        return view('product')->with('product',$product);
+    }
 }
