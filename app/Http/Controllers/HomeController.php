@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $api_url = 'https://fakestoreapi.com/products';
+
+        $products = file_get_contents($api_url);
+
+        // Decode JSON data into PHP array
+        $products = json_decode($products);
+        
+        return view('home')->with('products',$products);
     }
 }

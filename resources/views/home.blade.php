@@ -14,7 +14,18 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    @foreach($products as $product)
+                        <div class="card">
+                        <img style="height: 100px; width: 100px;" src="{{ $product->image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $product->title }}</h5>
+                            <p class="card-text">{{ $product->description }}</p>
+                            <p>R {{ $product->price }}</p>
+                            <a href="#" class="btn btn-primary">View Product</a>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
